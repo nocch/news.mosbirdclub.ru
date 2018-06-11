@@ -1,0 +1,78 @@
+---
+layout: default
+title: "Московский городской клуб любителей певчих и экзотических птиц - НОВОСТИ"
+navigationName: "- Добро пожаловать!"
+description: "Клуб птиц. Разведение, кольцевание, выставки."
+coverImg: "home-bg.jpeg"
+
+
+---
+<div class="logo"></div>
+ <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="font-size: 0.8em;">
+                <p>Приветствуем Вас! вы находитесь в разделе новостей сайта mosbirdclub.ru</p>
+            </div></div></div>
+<hr>
+<!--<div style="margin:0 auto; padding:20px; text-align: center;">
+{% for p in site.pages %}
+  {% if p.url contains '/tags/' %}
+    <a href="{{p.url}}">{{p.name | remove: '.html'}}</a>
+  {% endif %}
+{% endfor %}
+</div>-->
+<hr>
+
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+
+        {% for news in paginator.posts %}    
+            {% unless news.tags contains "Интересное" or news.tags contains "Репортажи и отчеты"%}
+                 {% cycle 'add row' : '<div class="row">', '', %}
+                    <div class="col-sm-6">
+                        <div class="post-preview">
+                            <a href="{{ news.url }}">
+                                 <img width="100%" src="/img/post-bg{{ news.prewImg }}.png">
+                                <h2 class="post-title">
+                                    {{ news.title }}
+                                </h2>
+                                <h3 class="post-subtitle">
+                                    {{ news.description }}
+                                </h3>
+                            </a>
+                            <p class="post-meta">Опубликовано автором <a href="#">{{ news.author }}</a> {{ news.date | date: "%Y-%m-%d" }}</p>
+                           <!-- <p class="post-meta"> {{ news.tags }} </p>-->
+                        </div>
+                        <hr>
+                    </div>
+                    {% cycle 'end row' : '', '</div>' %}               
+                {% endunless %}
+         {% endfor %}
+    
+
+        {% cycle 'end row' : '', '</div>' %}
+
+                <!-- Pager -->
+                <ul class="pager">
+                    {% if paginator.previous_page %}
+                    <li class="previous">
+                        <a href="{{ paginator.previous_page_path }}">&larr; Prev Posts</a>
+                    </li>
+                    {% endif %}
+
+                    {% if paginator.next_page %}
+                    <li class="next">
+                        <a href="{{ paginator.next_page_path }}">Older Posts &rarr;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+
+    <hr>
+<div id="disqus_thread"></div>
+<!--{% include disqus.html %}-->
