@@ -30,7 +30,7 @@ coverImg: "home-bg.jpeg"
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
 
         {% for news in paginator.posts %}    
-            {% unless news.tags contains "Интересное" or news.tags contains "Репортажи и отчеты"%}
+            {% unless news.tags contains "Статьи" or news.tags contains "Репортажи и отчеты"%}
                  {% cycle 'add row' : '<div class="row">', '', %}
                     <div class="col-sm-6">
                         <div class="post-preview">
