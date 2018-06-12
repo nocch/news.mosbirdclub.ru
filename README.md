@@ -1,2 +1,2 @@
-# birdnews.lndg.ru
-Russian news for birds - site on jekyll
+# news.mosburdclub.ru
+Russian club breeding birds - site on jekyll
